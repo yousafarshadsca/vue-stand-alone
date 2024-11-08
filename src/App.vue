@@ -1,47 +1,43 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from "vue";
+
+const content = ref({
+  header: "Header content here.",
+  main: "Main content here.",
+  footer: "Footer content here.",
+});
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <header class="header">{{ content.header }}</header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <main class="main">
+      <div>{{ content.main }}</div>
+    </main>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <footer class="footer">{{ content.footer }}</footer>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
+.header,
+.footer {
   display: block;
-  margin: 0 auto 2rem;
+  text-align: center;
+  padding: 24px;
+  font-size: 24px;
+  color: darkgreen;
+  background-color: aquamarine;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.main {
+  display: block;
+  justify-items: center;
+  align-content: center;
+  margin: 36px;
+  height: 50vh;
+  padding: 24px;
+  background-color: skyblue;
+  color: blue;
 }
 </style>
